@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,700,400);
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+
+.content {
+	margin: 20px auto;
+	max-width: 720px;
+	text-align: center;
+}
+
+.content .logo {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.alt_text {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid;
+}
+
+@media print {
+	.content > *:not(.printable) {
+		display: none;
+	}
+
+	.printable img {
+		max-height: 7in;
+	}
+}
