@@ -1,2 +1,2 @@
 ### xkcd-print
-A restyle of the amazing [XKCD](http://xkcd.com) comic for a more printable aesthetic built with Express on Node
+A restyle of the amazing [XKCD](http://xkcd.com) comic for a more printable aesthetic. Built with Express on NodeJS, because why do it by hand when I can have a stupid computer do it for me.
