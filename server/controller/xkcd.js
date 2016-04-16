@@ -12,7 +12,7 @@ function getXkcdProps (html) {
 	const $img = $('#comic img');
 	const src = $img.attr('src');
 	const alt = $img.attr('title');
-	const title = $img.attr('alt');
+	const title = $('title').first().text();
 	const prev = $('a[rel="prev"]').attr('href');
 	const next = $('a[rel="next"]').attr('href');
 
