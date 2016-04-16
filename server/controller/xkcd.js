@@ -3,10 +3,20 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
+/**
+ * Generate the url on the xkcd page to scrape
+ * @param  {Number|String} id - comic id
+ * @return {String}
+ */
 function getXkcdUrl (id) {
 	return `https://xkcd.com/${id}`;
 }
 
+/**
+ * Scrapes the necessary data from the returned html
+ * @param  {String} html
+ * @return {Object}
+ */
 function getXkcdProps (html) {
 	const $ = cheerio.load(html);
 	const $img = $('#comic img');
@@ -25,6 +35,11 @@ function getXkcdProps (html) {
 	};
 }
 
+/**
+ * Gets data and returns a Promise which resolves with necessary data to render
+ * @param  {Number|String} id
+ * @return {Promise}
+ */
 module.exports = function (id) {
 	const url = getXkcdUrl(id);
 
