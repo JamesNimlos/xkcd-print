@@ -1,37 +1,36 @@
 'use strict';
 
 const xkcd = require('./controller/xkcd');
+
+/** @type {RegExp} grabs the first digits from a path */
 const getId = /\d+/;
+/** @type {RegExp} finds valid, non-root path */
 const validPath = /\/\d+\/?$/;
 
+/**
+ * isValid checks if it's a valid path
+ * @param  {*}  path path to check
+ * @return {Boolean}
+ */
 function isValid (path) {
 	return typeof path === 'string' && (path === '/' || validPath.test(path));
 }
 
+/**
+ * [parseId description]
+ * @param  {String} path
+ * @return {String|null}
+ */
 function parseId (path) {
 	let location = path.match(getId);
 	return (location && location[0]) || '';
 }
 
-function renderUnavailable (props) {
-	return `
-		<h1>${props.title}</h1>
-		<p class="alt_text">
-			Oh no! This comic can't be rendered for printing. Try the previous or next links below.
-		</p>
-	`;
-}
-
-function renderPrintable (props) {
-	return `
-		<h1>${props.title}</h1>
-		<a href="${props.url}" alt="${props.title}">
-			<img src="${props.src}" title="${props.alt}" />
-		</a>
-		<p class="alt_text">${props.alt}</p>
-	`;
-}
-
+/**
+ * Renders the entire page
+ * @param  {Object} props required props for page render
+ * @return {String}
+ */
 function renderFullPage (props) {
 	return `
 		<!DOCTYPE html>
@@ -52,7 +51,7 @@ function renderFullPage (props) {
 						<a href="/1">First</a>|
 						<a href="${props.prev}">Previous</a>|
 						<a href="${props.next}">Next</a>|
-						<a href="/">Last</a>
+						<a href="/">Latest</a>
 					</div>
 				</div>
 			</body>
@@ -60,6 +59,36 @@ function renderFullPage (props) {
 	`;
 }
 
+/**
+ * Renders the image and alternative text
+ * @param  {Object} props
+ * @return {String}
+ */
+function renderPrintable (props) {
+	return `
+		<h1>${props.title}</h1>
+		<a href="${props.url}" alt="${props.title}">
+			<img src="${props.src}" title="${props.alt}" />
+		</a>
+		<p class="alt_text">${props.alt}</p>
+	`;
+}
+
+/**
+ * Renders if the image source wasn't found
+ * @param  {Object} props
+ * @return {String}
+ */
+function renderUnavailable (props) {
+	return `
+		<h1>${props.title}</h1>
+		<p class="alt_text">
+			Oh no! This comic can't be rendered for printing. Try the previous or next links below.
+		</p>
+	`;
+}
+
+/** Render function with logic */
 module.exports = function render (req, res) {
 	if (isValid(req.path)) {
 		xkcd(parseId(req.path)).then((props) => {
