@@ -9,6 +9,20 @@ html {
 	font-weight: 300;
 }
 
+body {
+	margin-bottom: 65px;
+}
+
+a {
+	cursor: pointer;
+  text-decoration: none;
+  color: #00878B;
+}
+
+a:hover {
+	color: #00AFB2;
+}
+
 .content {
 	margin: 20px auto;
 	max-width: 720px;
@@ -27,8 +41,25 @@ html {
   border: 1px solid;
 }
 
+.footer {
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border-top: 1px solid #999;
+  background-color: #FFF;
+}
+
+.about {
+	text-align: right;
+}
+
 @media print {
-	.content > *:not(.printable) {
+	.content > *:not(.printable), .footer {
 		display: none;
 	}
 
