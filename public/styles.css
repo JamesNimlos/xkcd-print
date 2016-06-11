@@ -25,7 +25,7 @@ a:hover {
 
 .content {
 	margin: 20px auto;
-	max-width: 720px;
+	max-width: 1920px;
 	text-align: center;
 }
 
@@ -34,7 +34,7 @@ a:hover {
 	filter: grayscale(100%);
 }
 
-.alt_text {
+#alt_text {
   max-width: 500px;
   margin: 10px auto;
   padding: 20px;
@@ -65,5 +65,6 @@ a:hover {
 
 	.printable img {
 		max-height: 7in;
+		max-width: 100%;
 	}
 }

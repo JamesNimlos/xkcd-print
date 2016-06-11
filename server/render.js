@@ -68,6 +68,7 @@ function renderFullPage (props) {
 					</div>
 				</div>
 			</body>
+			<script src="/scripts.js" type="text/javascript"></script>
 		</html>
 	`;
 }
@@ -81,9 +82,9 @@ function renderPrintable (props) {
 	return `
 		<h1>${props.title}</h1>
 		<a href="${props.url}" alt="${props.title}">
-			<img src="${props.src}" title="${props.alt}" />
+			<img id="comic_image" src="${props.src}" title="${props.alt}" />
 		</a>
-		<p class="alt_text">${props.alt}</p>
+		<p id="alt_text" class="alt_text">${props.alt}</p>
 	`;
 }
 
@@ -95,7 +96,7 @@ function renderPrintable (props) {
 function renderUnavailable (props) {
 	return `
 		<h1>${props.title}</h1>
-		<p class="alt_text">
+		<p id="alt_text" class="alt_text">
 			Oh no! This comic can't be rendered for printing. Try the previous or next links below.
 		</p>
 	`;
