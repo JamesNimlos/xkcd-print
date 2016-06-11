@@ -33,44 +33,44 @@ function parseId (path) {
  */
 function renderFullPage (props) {
 	return `
-		<!DOCTYPE html>
-		<html>
-			<head>
-				<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-				<title>${props.title}</title>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<title>${props.title}</title>
 
-				<link href="/styles.css" rel="stylesheet" />
-			</head>
-			<body>
-				<div class="content">
-					<div class="logo"><a href="//xkcd.com"><img src="//imgs.xkcd.com/static/terrible_small_logo.png" /></a></div>
-					<div class="navigation">
-						<a href="/1">First</a>|
-						<a href="${props.prev}">Previous</a>|
-						<a href="${props.next}">Next</a>|
-						<a href="/">Latest</a>
-					</div>
-					<div class="printable">
-						${props.src ? renderPrintable(props) : renderUnavailable(props)}
-					</div>
-					<div class="navigation">
-						<a href="/1">First</a>|
-						<a href="${props.prev}">Previous</a>|
-						<a href="${props.next}">Next</a>|
-						<a href="/">Latest</a>
-					</div>
-				</div>
-				<div class="footer">
-					<div class="attribution">An homage to <a href="${props.url}">xkcd</a> which is written by Randall Monroe.</div>
-					<div class="about">
-						<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a>.</div>
-						<div>The source code can be found on <a href="https://github.com/JamesNimlos/xkcd-print">Github</a>.</div>
-					</div>
-				</div>
-				<script src="/scripts.js"></script>
-			</body>
-		</html>
-	`;
+		<link href="/styles.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="content">
+			<div class="logo"><a href="//xkcd.com"><img src="//imgs.xkcd.com/static/terrible_small_logo.png" /></a></div>
+			<div class="navigation">
+				<a href="/1">First</a>|
+				<a href="${props.prev}">Previous</a>|
+				<a href="${props.next}">Next</a>|
+				<a href="/">Latest</a>
+			</div>
+			<div class="printable">
+				${props.src ? renderPrintable(props) : renderUnavailable(props)}
+			</div>
+			<div class="navigation">
+				<a href="/1">First</a>|
+				<a href="${props.prev}">Previous</a>|
+				<a href="${props.next}">Next</a>|
+				<a href="/">Latest</a>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="attribution">An homage to <a href="${props.url}">xkcd</a> which is written by Randall Monroe.</div>
+			<div class="about">
+				<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a>.</div>
+				<div>The source code can be found on <a href="https://github.com/JamesNimlos/xkcd-print">Github</a>.</div>
+			</div>
+		</div>
+		<script src="/scripts.js"></script>
+	</body>
+</html>
+`;
 }
 
 /**
