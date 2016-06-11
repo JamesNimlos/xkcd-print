@@ -40,6 +40,8 @@ function renderFullPage (props) {
 				<title>${props.title}</title>
 
 				<link href="/styles.css" rel="stylesheet" />
+				
+				<script type="text/javascript" src="/scripts.js" async></script>
 			</head>
 			<body>
 				<div class="content">
