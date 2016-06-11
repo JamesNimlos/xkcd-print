@@ -12,6 +12,10 @@ function getXkcdUrl (id) {
 	return `https://xkcd.com/${id}`;
 }
 
+function getExplainXkcdUrl (id) {
+	return `https://explainxkcd.com/${id}`;
+}
+
 /**
  * Scrapes the necessary data from the returned html
  * @param  {String} html
@@ -42,6 +46,7 @@ function getXkcdProps (html) {
  */
 module.exports = function (id) {
 	const url = getXkcdUrl(id);
+	const explainUrl = getExplainXkcdUrl(id);
 
 	return new Promise(function (resolve, reject) {
 		request(url, function (err, response, body) {
@@ -49,7 +54,8 @@ module.exports = function (id) {
 		    return resolve(Object.assign(
 		    	{
 		    		id: id,
-		    		url: url
+		    		url: url,
+		    		explainUrl: explainUrl
 		    	}, 
 		    	getXkcdProps(body)
 	    	));

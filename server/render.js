@@ -36,11 +36,14 @@ function renderFullPage (props) {
 		<!DOCTYPE html>
 		<html>
 			<head>
-				<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
 				<title>${props.title}</title>
 
 				<link href="/styles.css" rel="stylesheet" />
-				
+
+				<script type="text/javascript">
+					window.PAGE_PROPS = ${JSON.stringify(props)};
+				</script>
 				<script type="text/javascript" src="/scripts.js" async></script>
 			</head>
 			<body>
@@ -63,7 +66,10 @@ function renderFullPage (props) {
 					</div>
 				</div>
 				<div class="footer">
-					<div class="attribution">An homage to <a href="${props.url}">xkcd</a> which is written by Randall Monroe.</div>
+					<div>
+						<div class="attribution">An homage to <a href="${props.url}">xkcd</a> which is written by Randall Monroe.</div>
+						<div class="explain">Don't get it? <a href="${props.explainUrl}">explainXKCD</a></div>
+					</div>
 					<div class="about">
 						<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a>.</div>
 						<div>The source code can be found on <a href="https://github.com/JamesNimlos/xkcd-print">Github</a>.</div>

@@ -34,6 +34,10 @@ a:hover {
 	filter: grayscale(100%);
 }
 
+#comic_image {
+	max-width: 100%;
+}
+
 #alt_text {
   max-width: 500px;
   margin: 10px auto;
