@@ -67,8 +67,8 @@ function renderFullPage (props) {
 						<div>The source code can be found on <a href="https://github.com/JamesNimlos/xkcd-print">Github</a>.</div>
 					</div>
 				</div>
+				<script src="/scripts.js"></script>
 			</body>
-			<script src="/scripts.js" type="text/javascript"></script>
 		</html>
 	`;
 }
