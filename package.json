@@ -19,5 +19,6 @@
     "es6-promise": "^3.1.2",
     "express": "^4.13.4",
     "request": "^2.71.0"
-  }
+  },
+  "repository": "https://github.com/JamesNimlos/xkcd-print"
 }

@@ -71,7 +71,7 @@ function renderFullPage (props) {
 						<div class="explain">Don't get it? <a href="${props.explainUrl}">explainXKCD</a></div>
 					</div>
 					<div class="about">
-						<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a>.</div>
+						<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a> and <a href="https://github.com/zooillogica">Erica Anderson</a></div>
 						<div>The source code can be found on <a href="https://github.com/JamesNimlos/xkcd-print">Github</a>.</div>
 					</div>
 				</div>
