@@ -35,12 +35,23 @@ function renderFullPage (props) {
 	return `
 		<!DOCTYPE html>
 		<html>
-			<head>
+			<head>  
+				<meta charset="utf-8">
 				<meta http-equiv="X-UA-Compatible" content="IE=edge">
 				<title>${props.title}</title>
 
-				<link href="/styles.css" rel="stylesheet" />
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta property="og:title" content="${props.title}">
+				<meta property="og:type" content="website">
+				<meta property="og:url" content="http://xkcd-print.herokuapp.com/">
+				<meta property="og:image" content="${props.src}">
+				<meta property="og:description" content="${props.alt}">
 
+				<link rel="shortcut icon" href="favicon.ico">
+  				<link rel="icon" type="image/png" href="favicon.png">
+
+				<link href="/styles.css" rel="stylesheet" />
+				
 				<script type="text/javascript">
 					window.PAGE_PROPS = ${JSON.stringify(props)};
 				</script>
