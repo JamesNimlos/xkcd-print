@@ -47,8 +47,8 @@ function renderFullPage (props) {
 				<meta property="og:image" content="${props.src}">
 				<meta property="og:description" content="${props.alt}">
 
-				<link rel="shortcut icon" href="favicon.ico">
-  				<link rel="icon" type="image/png" href="favicon.png">
+				<link rel="shortcut icon" href="/favicon.ico">
+  				<link rel="icon" type="image/png" href="/favicon.png">
 
 				<link href="/styles.css" rel="stylesheet" />
 				
