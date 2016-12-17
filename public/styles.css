@@ -59,7 +59,23 @@ a:hover {
 }
 
 .about {
-	text-align: right;
+  text-align: right;
+}
+
+@media (max-width: 765px) {
+  body {
+    margin-bottom: 110px;
+  }
+
+  .footer {
+    font-size: 75%;
+    display: block;
+  }
+
+  .about {
+    text-align: left;
+    margin-top: 20px;
+  }
 }
 
 @media print {
