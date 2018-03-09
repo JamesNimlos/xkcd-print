@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const xkcd = require('./controller/xkcd');
+const xkcd = require("./controller/xkcd");
 
 /** @type {RegExp} grabs the first digits from a path */
 const getId = /\d+/;
@@ -12,8 +12,8 @@ const validPath = /\/\d+\/?$/;
  * @param  {*}  path path to check
  * @return {Boolean}
  */
-function isValid (path) {
-	return typeof path === 'string' && (path === '/' || validPath.test(path));
+function isValid(path) {
+  return typeof path === "string" && (path === "/" || validPath.test(path));
 }
 
 /**
@@ -21,9 +21,9 @@ function isValid (path) {
  * @param  {String} path
  * @return {String|null}
  */
-function parseId (path) {
-	let location = path.match(getId);
-	return (location && location[0]) || '';
+function parseId(path) {
+  let location = path.match(getId);
+  return (location && location[0]) || "";
 }
 
 /**
@@ -31,8 +31,8 @@ function parseId (path) {
  * @param  {Object} props required props for page render
  * @return {String}
  */
-function renderFullPage (props) {
-	return `
+function renderFullPage(props) {
+  return `
 		<!DOCTYPE html>
 		<html>
 			<head>  
@@ -87,8 +87,12 @@ function renderFullPage (props) {
 				</div>
 				<div class="footer">
 					<div>
-						<div class="attribution">An homage to <a href="${props.url}">xkcd</a> which is written by Randall Monroe.</div>
-						<div class="explain">Don't get it? <a href="${props.explainUrl}">explainXKCD</a></div>
+						<div class="attribution">An homage to <a href="${
+              props.url
+            }">xkcd</a> which is written by Randall Monroe.</div>
+						<div class="explain">Don't get it? <a href="${
+              props.explainUrl
+            }">explainXKCD</a></div>
 					</div>
 					<div class="about">
 						<div>Made by <a href="http://devnimlos.com/professional/a-tribute-to-xkcd-on-nodejs" role="navigation">James Nimlos</a> and <a href="https://github.com/zooillogica">Erica Anderson</a></div>
@@ -104,8 +108,8 @@ function renderFullPage (props) {
  * @param  {Object} props
  * @return {String}
  */
-function renderPrintable (props) {
-	return `
+function renderPrintable(props) {
+  return `
 		<h1>${props.title}</h1>
 		<a href="${props.url}" alt="${props.title}">
 			<img id="comic_image" src="${props.src}" title="${props.alt}" />
@@ -119,8 +123,8 @@ function renderPrintable (props) {
  * @param  {Object} props
  * @return {String}
  */
-function renderUnavailable (props) {
-	return `
+function renderUnavailable(props) {
+  return `
 		<h1>${props.title}</h1>
 		<p id="alt_text" class="alt_text">
 			Oh no! This comic can't be rendered for printing. Try the previous or next links below.
@@ -129,19 +133,19 @@ function renderUnavailable (props) {
 }
 
 /** Render function with logic */
-module.exports = function render (req, res) {
-	if (isValid(req.path)) {
-		xkcd(parseId(req.path)).then((props) => {
+module.exports = function render(req, res) {
+  if (isValid(req.path)) {
+    xkcd(parseId(req.path))
+      .then(props => {
+        return res.status(200).end(renderFullPage(props));
+      })
+      .catch(err => res.status(500).send(err));
+  } else {
+    const id = parseId(req.path);
+    if (id) {
+      return res.redirect(`/${id}`);
+    }
 
-			return res.status(200).end(renderFullPage(props));
-		}).catch((err) => res.status(500).send(err));
-	} else {
-
-		const id = parseId(req.path);
-		if (id) {
-			return res.redirect(`/${id}`);
-		}
-
-		return res.redirect('/');
-	}
-}
+    return res.redirect("/");
+  }
+};
