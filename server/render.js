@@ -137,7 +137,7 @@ module.exports = function render(req, res) {
   if (isValid(req.path)) {
     xkcd(parseId(req.path))
       .then(props => {
-        return res.status(200).end(renderFullPage(props));
+        return res.status(200).send(renderFullPage(props));
       })
       .catch(err => res.status(500).send(err));
   } else {
